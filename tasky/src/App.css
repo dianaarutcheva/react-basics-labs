@@ -1,7 +1,11 @@
 .container {
-  max-width: 600px;
+  max-width: 900px;
   margin: 20px auto;
   font-family: Arial, sans-serif;
+
+  display: flex;         
+  flex-wrap: wrap;       
+  gap: 15px;            
 }
 
 .card {
