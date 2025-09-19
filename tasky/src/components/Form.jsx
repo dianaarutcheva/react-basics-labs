@@ -11,7 +11,7 @@ const AddTaskForm = (props) => {
             name="title"
             required
             value={props.formState.title}
-            onChange={(event) => props.change(event)}
+            onChange={props.change}
           />
         </label>
         <br />
@@ -22,7 +22,7 @@ const AddTaskForm = (props) => {
             name="deadline"
             required
             value={props.formState.deadline}
-            onChange={(event) => props.change(event)}
+            onChange={props.change}
           />
         </label>
         <br />
@@ -32,8 +32,22 @@ const AddTaskForm = (props) => {
             type="text"
             name="description"
             value={props.formState.description}
-            onChange={(event) => props.change(event)}
+            onChange={props.change}
           />
+        </label>
+        <br />
+        <label>
+          Priority:
+          <select
+            name="priority"
+            required
+            value={props.formState.priority}
+            onChange={props.change}
+          >
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
         </label>
         <br />
         <input type="submit" value="Submit" />

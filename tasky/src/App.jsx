@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import AddTaskForm from './components/Form';
 import { v4 as uuidv4 } from 'uuid';
 
-
 function App() {
   const [taskState, setTaskState] = useState({
     tasks: [
@@ -18,7 +17,8 @@ function App() {
   const [formState, setFormState] = useState({
     title: "",
     description: "",
-    deadline: ""
+    deadline: "",
+    priority: "Low" // added priority
   });
 
   // Toggle task done status
@@ -49,12 +49,14 @@ function App() {
       case "deadline":
         form.deadline = event.target.value;
         break;
+      case "priority":
+        form.priority = event.target.value;
+        break;
       default:
         form = formState;
     }
 
     setFormState(form);
-    console.log(formState); // verify changes
   }
 
   // Handle form submission
@@ -65,14 +67,13 @@ function App() {
     const form = { ...formState };
 
     form.id = uuidv4();
-    form.priority = "Low"; // default priority
     form.done = false;
 
     tasks.push(form);
     setTaskState({ tasks });
 
     // Reset form
-    setFormState({ title: "", description: "", deadline: "" });
+    setFormState({ title: "", description: "", deadline: "", priority: "Low" });
   }
 
   return (
