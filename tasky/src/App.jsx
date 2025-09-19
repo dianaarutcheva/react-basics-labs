@@ -29,21 +29,17 @@ function App() {
   return (
     <div className="container">
       <h1>Tasky</h1>
-
-      {taskState.tasks.map((task, index) => (
-        <Task
-          key={task.id}
+      {taskState.tasks.map((task, index) => (              
+        <Task 
           title={task.title}
           description={task.description}
           deadline={task.deadline}
-          priority={task.priority}
+          key={task.id}
           done={task.done}
           markDone={() => doneHandler(index)}
-          deleteTask={() => deleteHandler(index)}
+          deleteTask = {() => deleteHandler(index)}
         />
       ))}
-
-      {/* AddTaskForm component below the tasks */}
       <AddTaskForm />
     </div>
   );
